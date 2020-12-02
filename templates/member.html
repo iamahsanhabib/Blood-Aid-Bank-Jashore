@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Blood Aid Bank, Jashore</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color: #D70F64;">
+    <h1 style="color: darkgreen; text-align: center; color: darkgreen;margin-top: 10px">Volunteer Form</h1>
+
+<div class="container p-3" style="font-family: serif; font-weight: bold">
+  <form action="/member" method="post" style="background-color: darkcyan;padding: 20px; margin-left: 300px; margin-right: 300px; align-items: center; border-radius: 5px">
+      
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="usr" name="name" placeholder="Enter Your Name" required>
+    </div>
+      
+    <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter Phone Number" required>
+    </div>
+    <div class="form-group">
+        <label for="blood">Blood Group</label>
+        <select class="form-control" id="blood" name="blood" required>
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="institute">Institute:</label>
+      <input type="text" class="form-control" id="institute" name="institute" required>
+    </div>
+    <div class="form-group">
+        <label for="zilla">District:</label>
+        <input type="text" class="form-control" id="zilla" name="zilla" required>
+    </div>
+    <div class="form-group">
+        <label for="fb">facebook:</label>
+        <input type="text" class="form-control" id="fb" name="fb" placeholder="Enter Facebook Profile Link" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+      
+  </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% extends "layout3.html" %}
+{% block body %}
+<div class="container pt-3">
+<form action="{{url_for('create_designation')}}" class="form-inline" method="POST">
+    <div class="form-group">
+        <label for="designation" class="mb-2 mr-sm-2"><b>Designation: </b></label>
+        <input type="text" class="form-control mb-2 mr-sm-2" name="designation" placeholder="Enter Designation" required>
+
+    </div>
+    <button type="submit" class="btn btn-success mb-2">Create</button>
+</form>
+</div>
+<div class="container pt-3">
+    <table class="table table-bordered" style="border-radius: 10px;">
+        <thead class="thead-dark">
+            <tr>
+                <th class="text-center">Id</th>
+                <th class="text-center">Designation</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for l in designation %}
+                <tr>
+                    <td>{{l.designation_id}}</td>
+                    <td>{{l.designation_name}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

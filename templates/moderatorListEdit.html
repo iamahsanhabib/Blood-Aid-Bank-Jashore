@@ -1,0 +1,63 @@
+{% extends "layout3.html" %}
+{% block body %}
+<div class="container">
+             
+    <table class="table table-bordered">
+      <h2 style="text-align: center; font-family: serif; font-weight: bold; background-color: cadetblue; border-radius: 5px;">Moderator Information</h1>
+      <thead class="thead-dark">
+        <tr>
+          <th class="text-center">Name</th>
+          <th class="text-center">Designation</th>
+          <th class="text-center">Phone</th>
+          <th class="text-center">Email</th>
+          <th class="text-center">Blood Group</th>
+          <th class="text-center">Institute</th>
+          <th class="text-center">Upozila</th>
+          <th class="text-center">District</th>
+          <th class="text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for l in moderator %}
+              <tr>
+                  <td>{{l.name}}</td>
+                  <td>{{l.designation_name}}</td>
+                  <td>{{l.phone}}</td>
+                  <td>{{l.email}}</td>
+                  <td class="text-center">{{l.blood}}</td>
+                  <td>{{l.institute}}</td>
+                  <td>{{l.location}}</td>
+                  <td>{{l.district}}</td>
+                  <td>
+                      <ul class="nav-item dropdown">
+                        <button class="nav-link dropdown-toggle btn btn-danger btn-sm text-center" href="#" id="navbardrop" data-toggle="dropdown">
+                            Edit
+                          </button>
+                          <div class="dropdown-menu">
+                                <div href="" class="dropdown-item">
+                                    <form action="{{url_for('edit_moderator')}}" method="POST" class="edit-entry">
+                                        <div class="form-group">
+                                          <input type="hidden" name="edit_moderator" value="{{ l.id }}">
+                                          <input style="width: 200px;" class="form-control" type="number" name="designation" placeholder="Enter Designation" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-success">Save</button>
+                                    </form>
+                                </div>
+                                <div class="dropdown-item" href="">
+                                    <form action="{{url_for('delete_moderator')}}" method="POST" class=delete-entry>
+                                        <div class="form-group">
+                                        <input type="hidden" name="delete_id" value="{{ l.id }}">
+                                        </div>
+                                        <button type="submit" class="btn btn-danger">delete</button>
+                                    </form>
+                                </div>
+                          </div>
+
+                      </ul>
+                  </td>
+              </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endblock %}

@@ -1,0 +1,49 @@
+{% extends "layout3.html" %}
+{% block body %}
+    <div class="container pt-3">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 style="background-color: rgb(138, 68, 82); font-weight: bold;text-align: center; border-radius: 5px; padding: 5px;">Set Notice</h3>
+                <form class="form-inline ml-auto mr-1" action="{{url_for('add_notice')}}" method="POST">
+                    <div class="form-group">
+                        <input type="text" class="form-control mr-sm-2" name="fblink" placeholder="Enter Notice Link" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="date" class="form-control mr-sm-2" name="date" placeholder="Enter Date" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">Save</button>
+                </form>
+            </div>
+
+            <div class="col-sm-6">
+                <h3 style="background-color: rgb(138, 68, 82); font-weight: bold;text-align: center; border-radius: 5px; padding: 5px;">Create Admin</h3>
+                <form action="{{url_for('create_admin')}}" method="POST">
+                    <div class="form-group form-inline ml-auto mr-1">
+                        <input type="text" class="form-control mr-sm-2" name="name" placeholder="Enter Name" required>
+                        <input type="email" class="form-control mr-sm-2" name="email" placeholder="Enter Email" required>
+        
+                    </div>
+                    <div class="from-group form-inline ml-auto mr-1">
+                        <input type="text" class="form-control mr-sm-2" name="password" placeholder="Enter Password" required>
+                        <button type="submit" class="form-control mr-sm-2 btn btn-success">Create</button>
+                    </div>
+                    
+                </form>
+            </div>
+
+        </div>
+        
+    </div>
+    <div>
+        <form action="{{url_for('add_image')}}" method="POST" enctype = "multipart/form-data">
+            <input type="file" name = "photo">
+            <button type="submit" class="btn btn-success">submit</button>
+        </form>
+    </div>
+    <div>
+        {% for x in image %}
+            <img src=x alt="Image"><br>
+        {% endfor %}
+    </div>
+    
+{% endblock %}

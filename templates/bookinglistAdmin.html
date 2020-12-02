@@ -1,0 +1,51 @@
+{% extends "layout2.html" %}
+{% block body %}
+<div class="container pt-3">
+    <form class="form-inline" action="{{url_for('update_status')}}" method="post">
+        <label for="id" class="mb-2 mr-sm-2" style="font-weight: bold">Update Status:</label>
+        <input type="number" class="form-control mb-2 mr-sm-2" id="id" placeholder="Enter Id No" name="id">   
+        <button type="submit" class="btn btn-primary mb-2">Save</button>
+    </form>
+  
+  </div>
+      
+  <div class="container p-3 table-responsive">          
+    <table class="table table-bordered">
+      <h2 style="text-align: center; font-family: serif; font-weight: bold; background-color: cadetblue; border-radius: 5px;">Blood Booking List</h2>
+      <thead class="thead-dark">
+        <tr>
+          <th class="text-center">Id</th>
+          <th class="text-center">Name</th>
+          <th class="text-center">Phone</th>
+          <th class="text-center">Month</th>
+          <th class="text-center">Group</th>
+          <th class="text-center">City</th>
+          <th class="text-center">Status</th>
+          <th class="text-center">Action</th>
+        </tr>
+      </thead>
+        <tbody>
+          {% for l in bookinglist %}
+              <tr>
+                  <td >{{l.id}}</td>
+                  <td >{{l.name}}</td>
+                  <td >{{l.phone}}</td>
+                  <td >{{l.month}}</td>
+                  <td >{{l.bloodgroup}}</td>
+                  <td >{{l.city}}</td>
+                  <td >{{l.requestStatus}}</td>
+                  <td class="text-center">
+                    <form action="{{ url_for('delete_entry') }}" method=post class=delete-entry>
+                      <input type="hidden" name="entry_id" value="{{ l.id }}">
+                      <input type="submit" class="btn btn-danger" value="Delete" />
+                  </form>
+                    
+                  </td>
+              </tr>
+              
+          {% endfor %}
+      </tbody>
+    </table>
+  </div>
+      
+  {% endblock %}

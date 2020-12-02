@@ -1,0 +1,29 @@
+{% extends "layout1.html" %}
+{% block body %}
+
+<div class="container">
+             
+  <table class="table table-bordered">
+    <h2 style="text-align: center; font-family: serif; font-weight: bold; background-color: cadetblue">Moderator Information</h1>
+    <thead class="thead-dark">
+      <tr>
+        <th class="text-center">Name</th>
+        <th class="text-center">Phone</th>
+        <th class="text-center">Institute</th>
+        <th class="text-center">District</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in t %}
+            <tr>
+                <td>{{l[0]}}</td>
+                <td>{{l[1]}}</td>
+                <td>{{l[2]}}</td>
+                <td>{{l[3]}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

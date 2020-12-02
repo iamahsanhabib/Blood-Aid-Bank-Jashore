@@ -1,0 +1,68 @@
+{% extends "layout1.html" %}
+{% block body %}
+    
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-sm-8">
+        <marquee behavior="scroll" direction="left" scrollamount="10">
+            <h3>Welcome to</h3>
+            <p>Blood Aid Bank, Jashore</p>
+        </marquee>
+        <div>
+           <img src="{{'/images/profile/shovon.jpg'}}" alt="User">
+        </div>
+        <div>
+          <h4 style="text-align: center;background-color: teal ;padding: 5px; border-radius: 5px;">Activitise</h4>
+          <div class="row">
+              <div class="col-6">
+                  <h5>Blood Donor</h5>
+                  <table class="table table-bordered">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th class="text-center">Date</th>
+                          <th class="text-center">Total</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>15-11-2019</td>
+                          <td>700+</td>
+                        </tr>
+                      </tbody>
+
+                  </table>
+              </div>
+              <div class="col-6">
+
+              </div>
+
+          </div>
+        </div>
+
+        
+      </div>
+
+      <div class="col-sm-4" style="font-family: sans-serif;">
+          <h4 class="bg-light" style="text-align: center;padding: 5px; border-radius: 5px;">Notice Board</h4>
+          <div style="overflow-y: scroll; height: 515px;">
+            {% for x in fblink %}
+                <!--h6 style="color: deeppink; font-weight: bold;">Date : {{x.date}}</h6-->
+                
+                <div id="fb-root" class="container pt-3"></div>
+                <label >Date: {{x.date}}</label><br>
+                <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+                <div class="fb-post" data-href={{x.fblink}} width='80px'></div>
+                
+            {% endfor %}
+          </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="py-2 text-white-50" style="background-color: darkgray;">  
+    <div class="container text-center">
+      <small>Copyright &copy; Ahsan Habib</small>
+    </div>
+  </footer>
+{% endblock %}
